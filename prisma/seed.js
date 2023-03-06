@@ -17,10 +17,10 @@ function getCustomers () {
            name: 'Aviato' 
         },
         {
-            name: 'Lokalise'
+            name: 'Hooli'
         },
         {
-            name: 'Spectrm'
+            name: 'SeeFood'
         }
     ]
 }
