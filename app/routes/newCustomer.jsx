@@ -10,7 +10,7 @@ export const action = async ({request}) => {
 
     const customer = await db.customer.create({data: fields})
 
-    return redirect(`/customers/${customer.id}`)
+    return redirect(`/${customer.id}`)
 }
 
 function NewCustomer() {
@@ -18,7 +18,7 @@ function NewCustomer() {
     <>
         <div className="page-header">
         <h1>New customer</h1>
-        <Link to='/customers' className="btn btn-reverse">Back</Link>
+        <Link to='/' className="btn btn-reverse">Back</Link>
         </div>
 
         <div className="page-content">

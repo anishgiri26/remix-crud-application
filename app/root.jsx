@@ -47,11 +47,6 @@ function Layout({children}) {
         <Link to="/" className = "logo">
           Y43 Lite
         </Link>
-        <ul className="nav">
-          <li>
-            <Link to = "/customers">Customers</Link>
-          </li>
-        </ul>
       </nav>
       
       <div className="container">
