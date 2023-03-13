@@ -1,4 +1,3 @@
-import { Link, useSearchParams } from "@remix-run/react";
 import { redirect } from "@remix-run/node";
 import { db } from "~/utils/db.server";
 

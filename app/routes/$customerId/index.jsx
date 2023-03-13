@@ -1,4 +1,5 @@
 import { useLoaderData, Link } from "@remix-run/react";
+import { redirect } from "@remix-run/node";
 import { db } from "~/utils/db.server";
 
 export const loader = async ({ params }) => {
@@ -17,6 +18,23 @@ export const loader = async ({ params }) => {
   const data = { customer, stockblocks};
 
   return data;
+}
+
+export const action = async ({request, params}) => {
+  
+  const form = await request.formData()
+  
+  if(form.get('_method') === 'delete') {
+    const customer = await db.customer.findUnique({
+      where: { id: params.customerId },
+    });
+  
+    if (!customer) throw new Error("Customer not found");
+
+    await db.customer.delete({ where: { id: params.customerId } });
+
+    return redirect('/')
+  }
 }
 
 
@@ -49,6 +67,14 @@ function Customer() {
           </li>
         ))}
       </ul>
+      <div className="page-footer">
+          <form method="POST">
+            <input type="hidden" name="_method" value="delete" />
+              <button className="btn btn-delete">
+                Delete Customer and all Stock Blocks
+              </button>
+          </form>
+      </div>
     </div>
     </>
   )
