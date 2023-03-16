@@ -27,6 +27,37 @@ function NewStockBlock() {
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" id="name" />
                 </div>
+
+                <div className="form-control">
+                    <label htmlFor="type">Type</label>
+                    <select name="type" id="type">
+                        <option value="volume" selected>Volume</option>
+                        <option value="monetary">Monetary</option>
+                        <option value="headcount">Headcount</option>
+                    </select>
+                </div>
+
+                <div className="form-control">
+                    <label htmlFor="dimensions">Dimensions</label>
+                    <input type="text" name="dimensions" id="dimensions" />
+                </div>
+
+                <div className="form-control">
+                    <label htmlFor="aggregate-type">Aggregate Type</label>
+                    <select name="aggregate-type" id="aggregate-type">
+                        <option value="count" selected>Count</option>
+                        <option value="sum">Sum</option>
+                    </select>
+                </div>
+
+                <div className="form-control">
+                    <label htmlFor="aggregate-on">Aggregate On</label>
+                    <select name="aggregate-on" id="aggregate-on">
+                        <option value="id" selected>id</option>
+                        <option value="value">value</option>
+                    </select>
+                </div>
+
                 <button type="submit" className="btn btn-stock">
                     Create Stock Block
                 </button>
