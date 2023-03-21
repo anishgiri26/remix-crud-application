@@ -7,4 +7,4 @@ npx prisma db push
 You then need to create a seed.js file with the inital data and then run it 
 node prisma/seed.js
 
-You can right click on dev.db and open in SQLite. Run the query to see what th table looks like.
+You can right click on dev.db and open in SQLite. Run the query to see what the table looks like.

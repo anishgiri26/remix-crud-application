@@ -40,9 +40,12 @@ function StockBlock() {
 
   return (
     <>
-      <div>
-        <h1>{stockblock.name}</h1>
-      </div>
+    <div>
+      <h1>{stockblock.name}</h1>
+    </div>
+    <div>
+      <p> {stockblock.type} </p>
+    </div>
     <div className="page-footer">
       <form method="POST">
         <input type="hidden" name="_method" value="delete" />

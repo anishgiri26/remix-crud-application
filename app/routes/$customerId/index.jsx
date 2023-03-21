@@ -57,11 +57,19 @@ function Customer() {
         {stockblocks.map((stockblock) => (
           <li key={stockblock.id} style={{marginBottom: '10px', paddingBottom: '10px', borderBottom: '1px solid gray'}}>
             <Link to={stockblock.id}>
-              <h3>{stockblock.name}</h3>
+              <h2>{stockblock.name}</h2>
               <div style={{fontSize: '12px'}}>
                 <span>Created: {new Date(stockblock.createdAt).toLocaleString()}</span>
                 <br />
                 <span>Updated: {new Date(stockblock.updatedAt).toLocaleString()}</span>
+              </div>
+              <br />
+              <div>
+                <span>Type: {stockblock.type} </span>
+                <br />
+                <span>Dimensions: {stockblock.dimensions} </span>
+                <br />
+                <span>Calculate as: {stockblock.aggregateType}({stockblock.aggregateOn})</span>
               </div>
             </Link>
           </li>

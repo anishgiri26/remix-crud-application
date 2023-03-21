@@ -3,7 +3,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["referentialActions"]
 }
 
 datasource db {
@@ -22,9 +21,14 @@ model Customer {
 model StockBlock {
   id         String   @id @default(uuid())
   name       String   
+  type       String
+  dimensions String
+  aggregateType String
+  aggregateOn String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
   customerId String
   customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
 }
+
 

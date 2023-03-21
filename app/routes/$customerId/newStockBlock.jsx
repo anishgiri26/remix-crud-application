@@ -5,9 +5,13 @@ import { db } from "~/utils/db.server";
 export const action = async ({request, params}) => {
     const form = await request.formData()
     const name = form.get('name')
+    const type = form.get('type')
+    const dimensions = form.get('dimensions')
+    const aggregateType = form.get('aggregate-type')
+    const aggregateOn = form.get('aggregate-on')
     
     const customer = await db.customer.findUnique({where: {id: params.customerId}})
-    const stockblock = await db.stockBlock.create({data: {name, customer: {connect: {id: customer.id}}}})
+    const stockblock = await db.stockBlock.create({data: {name, type, dimensions, aggregateType, aggregateOn, customer: {connect: {id: customer.id}}}})
 
     return redirect(`/${customer.id}`)
 
@@ -55,6 +59,7 @@ function NewStockBlock() {
                     <select name="aggregate-on" id="aggregate-on">
                         <option value="id" selected>id</option>
                         <option value="value">value</option>
+                        <option value="value">monetary_value</option>
                     </select>
                 </div>
 
