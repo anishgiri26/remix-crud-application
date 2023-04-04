@@ -45,7 +45,7 @@ function Customer() {
     <>
       <div className="page-header">
         <h1>{customer.name}</h1>
-        <Link to= 'newStockBlock' className="btn btn-stock">
+        <Link to= 'newStockBlock' className="btn">
           New Stock Block
         </Link>
       </div>
@@ -56,22 +56,41 @@ function Customer() {
       <ul>
         {stockblocks.map((stockblock) => (
           <li key={stockblock.id} style={{marginBottom: '10px', paddingBottom: '10px', borderBottom: '1px solid gray'}}>
-            <Link to={stockblock.id}>
-              <h2>{stockblock.name}</h2>
-              <div style={{fontSize: '12px'}}>
-                <span>Created: {new Date(stockblock.createdAt).toLocaleString()}</span>
-                <br />
-                <span>Updated: {new Date(stockblock.updatedAt).toLocaleString()}</span>
+            <div className="row">
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <h2>{stockblock.name}</h2>
+                  <div style={{ fontSize: '12px' }}>
+                    <span>Created: {new Date(stockblock.createdAt).toLocaleString()}</span>
+                    <br />
+                    <span>Updated: {new Date(stockblock.updatedAt).toLocaleString()}</span>
+                  </div>
+                  <br />
+                  <div>
+                    <span>Type: {stockblock.type} </span>
+                    <br />
+                    <span>Dimensions: {stockblock.dimensions} </span>
+                    <br />
+                    <span>Calculate as: {stockblock.aggregateType}({stockblock.aggregateOn})</span>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                  <div className="page-footer">
+                    <Link to={`/${customer.id}/${stockblock.id}/edit`} className="btn btn-edit">
+                        Edit
+                    </Link>
+                  </div>
+                  <div className="page-footer">
+                    <form method="POST">
+                      <input type="hidden" name="_method" value="delete" />
+                      <button className="btn btn-delete">
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                </div>
               </div>
-              <br />
-              <div>
-                <span>Type: {stockblock.type} </span>
-                <br />
-                <span>Dimensions: {stockblock.dimensions} </span>
-                <br />
-                <span>Calculate as: {stockblock.aggregateType}({stockblock.aggregateOn})</span>
-              </div>
-            </Link>
+            </div>
           </li>
         ))}
       </ul>

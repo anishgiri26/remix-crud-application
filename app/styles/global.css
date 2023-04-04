@@ -108,11 +108,11 @@ p {
   padding: 5px 10px;
 }
 
-.btn-stock {
+.btn-edit {
   background: rgb(55, 151, 240);
   color: #fff;
   border-color: rgb(55, 151, 240);
-  font-size: 15px;
+  font-size: 13px;
   padding: 5px 10px;
 }
 
